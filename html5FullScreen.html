@@ -1,0 +1,16 @@
+<div style="padding:8px 8px; background-color:#e1e1e1; border: solid 1px #9f9f9f;margin-bottom:5px;box-shadow: inset 0px 1px 0px rgba(255,255,255,0.5);"> "Your Browser <span id="supportStatus" style="font-weight:bold"></span> HTML5 Full Screen Mode</div>
+<script src="https://gist.github.com/1653975.js?file=gistfile1.js"></script>
+
+<div id="button" style="background-color:#FF0000;padding:8px;display:inline-block;color:#000;border-radius:3px;cursor:pointer">Click Me</div>
+<img id="fullScreenKitten" width="200px" height="300px" src="http://placekitten.com/200/300"/>
+
+<script>
+  var support = document.body.mozRequestFullScreen || document.body.webkitRequestFullScreen || document.body.requestFullScreen;
+  document.getElementById('supportStatus').innerHTML = support ? "SUPPORTS" : "DOES NOT SUPPORT"
+  var elm = document.getElementById('fullScreenKitten');
+  document.getElementById('button').addEventListener('click',goFull,false);
+
+  function goFull() {
+  ( elm.mozRequestFullScreen && elm.mozRequestFullScreen() ) || ( elm.webkitRequestFullScreen && elm.webkitRequestFullScreen() ) || ( elm.requestFullScreen && elm.requestFullScreen() );
+  }
+</script>
